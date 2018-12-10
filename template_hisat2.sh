@@ -40,7 +40,7 @@ log=${log/results/results\/_logs}
 metfile=${out/.sam/_metric.txt}
 summary=${metfile/_metric/_summary}
 
-time hisat2 --dta -p 8 --trim3 40 --skip 10 --no-mixed --novel-splicesite-outfile $outsplice --no-discordant --downstream-transcriptome-assembly --new-summary=$summary --met-file $metfile -x /project/def-banire/Labobioinfo/genomes/Mus_musculus.GRCm38/Mus_musculus.GRCm38 -1 $read1 -2 $read2 -S $out &> $log
+time hisat2 --dta -p 8 --trim3 40 --skip 10 --no-mixed --novel-splicesite-outfile $outsplice --no-discordant --downstream-transcriptome-assembly --new-summary --summary-file=$summary --met-file $metfile -x /project/def-banire/Labobioinfo/genomes/Mus_musculus.GRCm38/Mus_musculus.GRCm38 -1 $read1 -2 $read2 -S $out &> $log
 
 rm $read1 $read2
 echo "hisat2 "$label >> ../results/_RNA-Seq_checkpoint.txt
