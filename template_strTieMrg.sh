@@ -3,8 +3,9 @@
 #SBATCH --mem=514500M
 #SBATCH --mail-user=mamoolack@gmail.com
 #SBATCH --mail-type=ALL
-#SBATCH --output=/project/def-banire/Labobioinfo/Jobs/180911_Lim/results/_logs/stringTie_merge_slurm-%j.out
-#SBATCH --error=/project/def-banire/Labobioinfo/Jobs/180911_Lim/results/_logs/stringTie_merge_slurm-%j.err
+#SBATCH --workdir=/project/def-banire/Labobioinfo/Jobs/JOBID/scripts/
+#SBATCH --output=/project/def-banire/Labobioinfo/Jobs/JOBID/results/_logs/stringTie_merge_slurm-%j.out
+#SBATCH --error=/project/def-banire/Labobioinfo/Jobs/JOBID/results/_logs/stringTie_merge_slurm-%j.err
 
 
 strTie_Assembly_list="../results/assembly_GTF_list.txt"

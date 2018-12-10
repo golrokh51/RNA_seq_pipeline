@@ -4,6 +4,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mail-user=mamoolack@gmail.com
 #SBATCH --mail-type=ALL
+#SBATCH --workdir=/project/def-banire/Labobioinfo/Jobs/JOBID/scripts/
 #SBATCH --output=/project/def-banire/Labobioinfo/Jobs/JOBID/results/_logs/samTools_slurm-%j.out
 #SBATCH --error=/project/def-banire/Labobioinfo/Jobs/JOBID/results/_logs/samTools_slurm-%j.err
 

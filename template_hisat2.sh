@@ -2,6 +2,7 @@
 #SBATCH --time=3:00:00
 #SBATCH --mem-per-cpu=32000
 #SBATCH --cpus-per-task=1
+#SBATCH --workdir=/project/def-banire/Labobioinfo/Jobs/JOBID/scripts/
 #SBATCH --mail-user=mamoolack@gmail.com
 #SBATCH --mail-type=ALL
 #SBATCH --output=/project/def-banire/Labobioinfo/Jobs/JOBID/results/_logs/hisat2_slurm-%j.out
