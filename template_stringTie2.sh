@@ -10,7 +10,7 @@
 
 
 labels=../results/_labels.txt
-strTie_Assembly_list2="../results/assembly_GTF_list2.txt"
+strTie_Assembly_list="../results/assembly_GTF_list2.txt"
 strTie_merged="../results/stringtie_merged.gtf"
 
 # Here I pick line number ${SLURM_ARRAY_TASK_ID}
@@ -33,6 +33,6 @@ abund=${out/strTied2.gtf/strTie2_geneAbund.tsv}
 
 time stringtie $f -e -G $strTie_merged -o $out -p 16 -v -C $cov -A $abund &> $log
 
-echo $label" "$out >> $strTie_Assembly_list2
+echo $label" "$out >> $strTie_Assembly_list
 echo "stringtie2 "$label >> ../results/RNA-Seq_checkpoint.txt
 chmod 750 $out

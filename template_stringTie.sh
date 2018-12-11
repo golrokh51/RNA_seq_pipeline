@@ -9,7 +9,7 @@
 #SBATCH --error=/project/def-banire/Labobioinfo/Jobs/JOBID/results/_logs/stringTie_slurm-%j.err
 
 labels=../results/_labels.txt
-strTie_Assembly_list="../results/assembly_GTF_list.txt"
+strTie_Assembly_list="../results/assembly_GTF_list1.txt"
 # Here I pick line number ${SLURM_ARRAY_TASK_ID}
 f=$(sed -n "${SLURM_ARRAY_TASK_ID}p" $labels)
 
@@ -21,7 +21,7 @@ out=$f
 out=${out/.bam/_strTied.gtf} 
 log=${f/.bam/_strTie.log} 
 log=${log/results/results\/_logs} 
-time stringtie $f -G /project/def-banire/Labobioinfo/annotations/Mus_musculus.GRCm38/Mus_musculus.GRCm38.93.gtf -o $out -p 16 -v &> $log
-echo $out >> $strTie_Assembly_list
+time stringtie $f -e -G /project/def-banire/Labobioinfo/annotations/Mus_musculus.GRCm38/Mus_musculus.GRCm38.93.gtf -o $out -p 16 -v &> $log
+echo $label" "$out >> $strTie_Assembly_list
 echo "stringtie1 "$label >> ../results/_RNA-Seq_checkpoint.txt
 chmod 750 $out
