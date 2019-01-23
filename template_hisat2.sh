@@ -2,11 +2,11 @@
 #SBATCH --time=3:00:00
 #SBATCH --mem-per-cpu=32000
 #SBATCH --cpus-per-task=1
-#SBATCH --workdir=/project/def-banire/Labobioinfo/Jobs/JOBID/scripts/
-#SBATCH --mail-user=mamoolack@gmail.com
-#SBATCH --mail-type=ALL
-#SBATCH --output=/project/def-banire/Labobioinfo/Jobs/JOBID/results/_logs/hisat2_slurm-%j.out
-#SBATCH --error=/project/def-banire/Labobioinfo/Jobs/JOBID/results/_logs/hisat2_slurm-%j.err
+#SBATCH --workdir=__WORKDIR__/__JOBID__/scripts/
+#SBATCH --mail-user=__EMAIL__
+#SBATCH --mail-type=__EMAIL_TYPE__
+#SBATCH --output=__WORKDIR__/__JOBID__/results/_logs/hisat2_slurm-%j.out
+#SBATCH --error=__WORKDIR__/__JOBID__/results/_logs/hisat2_slurm-%j.err
 
 
 
@@ -40,7 +40,7 @@ log=${log/results/results\/_logs}
 metfile=${out/.sam/_metric.txt}
 summary=${metfile/_metric/_summary}
 
-time hisat2 --dta -p 8 --trim3 40 --skip 10 --no-mixed --novel-splicesite-outfile $outsplice --no-discordant --downstream-transcriptome-assembly --new-summary --summary-file=$summary --met-file $metfile -x /project/def-banire/Labobioinfo/genomes/Mus_musculus.GRCm38/Mus_musculus.GRCm38 -1 $read1 -2 $read2 -S $out &> $log
+time hisat2 --dta -p 8 --trim3 40 --skip 10 --no-mixed --novel-splicesite-outfile $outsplice --no-discordant --downstream-transcriptome-assembly --new-summary --summary-file=$summary --met-file $metfile -x $__GENOME_DIR__/Mus_musculus.GRCm38/Mus_musculus.GRCm38 -1 $read1 -2 $read2 -S $out &> $log
 
 rm $read1 $read2
 echo "hisat2 "$label >> ../results/_RNA-Seq_checkpoint.txt

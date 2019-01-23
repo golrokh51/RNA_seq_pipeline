@@ -2,11 +2,11 @@
 #SBATCH --time=1:00:00
 #SBATCH --mem-per-cpu=32000
 #SBATCH --cpus-per-task=1
-#SBATCH --mail-user=mamoolack@gmail.com
-#SBATCH --mail-type=ALL
-#SBATCH --workdir=/project/def-banire/Labobioinfo/Jobs/JOBID/scripts/
-#SBATCH --output=/project/def-banire/Labobioinfo/Jobs/JOBID/results/_logs/stringTie_slurm-%j.out
-#SBATCH --error=/project/def-banire/Labobioinfo/Jobs/JOBID/results/_logs/stringTie_slurm-%j.err
+#SBATCH --mail-user=__EMAIL__
+#SBATCH --mail-type=__EMAIL_TYPE__
+#SBATCH --workdir=__WORKDIR__/__JOBID__/scripts/
+#SBATCH --output=__WORKDIR__/__JOBID__/results/_logs/stringTie_slurm-%j.out
+#SBATCH --error=__WORKDIR__/__JOBID__/results/_logs/stringTie_slurm-%j.err
 
 labels=../results/_labels.txt
 strTie_Assembly_list="../results/assembly_GTF_list1.txt"
@@ -21,7 +21,7 @@ out=$f
 out=${out/.bam/_strTied.gtf} 
 log=${f/.bam/_strTie.log} 
 log=${log/results/results\/_logs} 
-time stringtie $f -e -G /project/def-banire/Labobioinfo/annotations/Mus_musculus.GRCm38/Mus_musculus.GRCm38.93.gtf -o $out -p 16 -v &> $log
+time stringtie $f -e -G $__ANNO_DIR__/Mus_musculus.GRCm38/Mus_musculus.GRCm38.93.gtf -o $out -p 16 -v &> $log
 echo $label" "$out >> $strTie_Assembly_list
 echo "stringtie1 "$label >> ../results/_RNA-Seq_checkpoint.txt
 chmod 750 $out
