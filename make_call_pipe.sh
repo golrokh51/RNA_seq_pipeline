@@ -8,10 +8,11 @@
 # 
 #  
 # # 
-temp_path=/project/def-banire/Labobioinfo/Jobs/RNA_seq_pipline
+WORK_DIR=__WORK_DIR__
+temp_path=__WORK_DIR__/RNA_seq_pipline
 fld=$(ls -1  $temp_path/template_*.sh |awk -F"/" '{print NF}' | uniq)
 fld=$((fld+0))
-WORK_DIR=/project/def-banire/Labobioinfo/Jobs
+
 for i in `ls -1  $temp_path/template_*.sh | cut -f$fld -d"/"`;  do  sed "s/JOBID/$1/g" $temp_path/$i > $WORK_DIR/$1/scripts/$i; done	
 
 
