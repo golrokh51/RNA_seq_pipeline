@@ -22,7 +22,10 @@ for i in `ls -1  $temp_path/template_*.sh | cut -f$fld -d"/"`;  do  sed "s/JOBID
 inputFiles=$WORK_DIR/$1/data/_all_fq.txt
 labels=$WORK_DIR/$1/results/_labels.txt
 # list all your subject and put them in a file
+
+########????!!!!!! WHAT IS THIS SED COMMAND IS DOING HERE??? !!!!!!????########
 ls -1  $WORK_DIR/180911_Lim/data/*_1.fq.gz |sed "s/JOBID/$1/g" > $inputFiles
+########????!!!!!!!!!!!!!!!!!sed "s/JOBID/$1/g"!!!!!!!!!!!!!!!!!!!!????########
 
 fld=$(ls $WORK_DIR/180911_Lim/data/*_1.fq.gz |awk -F"/" '{print NF}' | uniq)
 fld=$((fld+0))
