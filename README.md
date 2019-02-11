@@ -3,7 +3,7 @@
 
 
 ## warning: This pipline is under development, use with caution 
-
+## tested on Graham
 You should add following environemental variables:
 ```__WORKDIR__```
 ```__ANNO_DIR__```
