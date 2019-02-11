@@ -24,13 +24,13 @@ labels=$WORK_DIR/$1/results/_labels.txt
 # list all your subject and put them in a file
 
 ########????!!!!!! WHAT IS THIS SED COMMAND IS DOING HERE??? !!!!!!????########
-ls -1  $WORK_DIR/180911_Lim/data/*_1.fq.gz |sed "s/JOBID/$1/g" > $inputFiles
+ls -1  $WORK_DIR/$1/data/*_1.fq.gz |sed "s/JOBID/$1/g" > $inputFiles
 ########????!!!!!!!!!!!!!!!!!sed "s/JOBID/$1/g"!!!!!!!!!!!!!!!!!!!!????########
 
-fld=$(ls $WORK_DIR/180911_Lim/data/*_1.fq.gz |awk -F"/" '{print NF}' | uniq)
+fld=$(ls $WORK_DIR/$1/data/*_1.fq.gz |awk -F"/" '{print NF}' | uniq)
 fld=$((fld+0))
 
-ls $WORK_DIR/180911_Lim/data/*_1.fq.gz |cut -f$fld -d"/" | cut -f1 -d"." |sed 's/.$//g' |sed 's/.$//g' | uniq  > $labels
+ls $WORK_DIR/$1/data/*_1.fq.gz |cut -f$fld -d"/" | cut -f1 -d"." |sed 's/.$//g' |sed 's/.$//g' | uniq  > $labels
 
 N_SUBJECT=$(wc -l $inputFiles | cut -f1 -d" ")
 N_SUBJECT=$((N_SUBJECT + 0))
