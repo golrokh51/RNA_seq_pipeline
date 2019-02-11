@@ -79,6 +79,8 @@ line 45:
 ```bash
 rm $read1 $read2
 ```
+## You have to adjust the parameters, specially for hisat2 yourself in the template file before running it.
+
 
 ## To run RNA-seq pipeline on CEDAR, GRAHAM, MP2b you should run within RNA_seq_pipline folder the following command:
 ```bash
