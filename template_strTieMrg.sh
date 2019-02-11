@@ -3,7 +3,7 @@
 #SBATCH --mem=128000M
 #SBATCH --mail-user=__EMAIL__
 #SBATCH --mail-type=__EMAIL_TYPE__
-#SBATCH --workdir=__WORKDIR__/__JOBID__/scripts/
+#SBATCH --workdir=__WORKDIR__/__JOBID__/scripts
 #SBATCH --output=__WORKDIR__/__JOBID__/results/_logs/stringTie_merge_slurm-%j.out
 #SBATCH --error=__WORKDIR__/__JOBID__/results/_logs/stringTie_merge_slurm-%j.err
 
