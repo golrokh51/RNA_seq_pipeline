@@ -2,7 +2,7 @@
 #SBATCH --time=1:00:00
 #SBATCH --mem-per-cpu=32000
 #SBATCH --cpus-per-task=1
-#SBATCH --workdir=__WORKDIR__/__JOBID__/scripts/
+#SBATCH --workdir=__WORKDIR__/__JOBID__/scripts
 #SBATCH --mail-user=__EMAIL__
 #SBATCH --mail-type=__EMAIL_TYPE__
 #SBATCH --output=__WORKDIR__/__JOBID__/results/_logs/samTools_stats_slurm-%j.out
