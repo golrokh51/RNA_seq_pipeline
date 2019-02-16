@@ -4,12 +4,9 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mail-user=__EMAIL__
 #SBATCH --mail-type=__EMAIL_TYPE__
-#SBATCH --workdir=__WORKDIR__/__JOBID__/scripts
-#SBATCH --output=__WORKDIR__/__JOBID__/results/_logs/samTools_slurm-%j.out
-#SBATCH --error=__WORKDIR__/__JOBID__/results/_logs/samTools_slurm-%j.err
 
 
-
+cd $__WORKDIR__/__JOBID__/scripts
 # All job recive a different number, from 1 to 18, that number is
 # stored in  $SLURM_ARRAY_TASK_ID
 labels=../results/_labels.txt

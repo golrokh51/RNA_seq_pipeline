@@ -2,17 +2,13 @@
 #SBATCH --time=3:00:00
 #SBATCH --mem-per-cpu=32000
 #SBATCH --cpus-per-task=1
-#SBATCH --chdir=__WORKDIR__/__JOBID__/scripts
 #SBATCH --mail-user=__EMAIL__
 #SBATCH --mail-type=__EMAIL_TYPE__
-#SBATCH --output=__WORKDIR__/__JOBID__/results/_logs/hisat2_slurm-%j_%a.out
-#SBATCH --error=__WORKDIR__/__JOBID__/results/_logs/hisat2_slurm-%j_%a.err
-
 
 
 # All job recive a different number, from 1 to 18, that number is
 # stored in  $SLURM_ARRAY_TASK_ID
-
+cd $__WORKDIR__/__JOBID__/scripts
 module load hisat2/2.1.0
 inputFiles=../data/_all_fq.txt
 ###strTie_Assembly_list="../results/assembly_GTF_list.txt"
@@ -23,14 +19,14 @@ f1=$(sed -n "${SLURM_ARRAY_TASK_ID}p" $inputFiles)
 
 # and run the rest of the script
 
-f2=${f1/_1.fq/_2.fq}
+f2=${f1/_1.fq.gz/_2.fq.gz}
 gunzip -k $f1
 gunzip -k $f2
-
 read1=${f1/fq.gz/fq} 
 read2=${f2/fq.gz/fq}   
 chmod 750 $read1
 chmod 750 $read2
+
 lable=${read2/_2.fq/}
 out=${read2/_2.fq/_hisat2.sam}
 out=${out/data/results}
