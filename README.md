@@ -1,4 +1,4 @@
-# RNA_seq_pipline
+# RNA_seq_pipeline
 
 
 
