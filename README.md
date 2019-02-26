@@ -1,8 +1,8 @@
 # RNA_seq_pipeline
-
-
-
 ## warning: This pipline is under development, use with caution 
+
+### chdir, output, and error in SBATCH options causes the job to stop without any error file produced. I still don't know waht is the problem. Could be because I lunch the jobs with make_call_pipe script and not directly. Let me know if you know where the problem could be please.
+
 You should add following environemental variables:
 ```__WORKDIR__```
 ```__ANNO_DIR__```
