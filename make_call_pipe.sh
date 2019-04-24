@@ -16,7 +16,7 @@ fld=$((fld+0))
 
 # rm $WORK_DIR/180911_Lim/data/*.fq
 
-for i in `ls -1  $temp_path/template_*.sh | cut -f$fld -d"/"`;  do  sed "s/__JOBID__/$1/g"  $temp_path/$i |sed "s/__EMAIL__/$2/g" |sed "s/__EMAIL_TYPE__/$3/g" |sed 's/__WORKDIR__/${WORK_DIR}/g' > $WORK_DIR/$1/scripts/$i; done	
+for i in `ls -1  $temp_path/template_*.sh | cut -f$fld -d"/"`;  do  sed "s/__JOBID__/$1/g"  $temp_path/$i |sed "s/__EMAIL__/$2/g" |sed "s/__EMAIL_TYPE__/$3/g"  > $WORK_DIR/$1/scripts/$i; done	
 
 
 inputFiles=$WORK_DIR/$1/data/_all_fq.txt
