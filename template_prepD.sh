@@ -3,8 +3,10 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mail-user=__EMAIL__
 #SBATCH --mail-type=__EMAIL_TYPE__
+#SBATCH --error=__ERR_LOG__
+#SBATCH --output=__OUT_LOG__
+#SBATCH --workdir=__WORK_DIR__
 
-cd $__WORKDIR__/__JOBID__/scripts
 time python2 prepDE.py -i ../results/assembly_GTF_list1.txt -g ../results/gene_count_matrix_str1.csv -t ../results/transcript_count_matrix_str1.csv --legend=../results/legend_str1.csv
 time python2 prepDE.py -i ../results/assembly_GTF_list2.txt -g ../results/gene_count_matrix_str2.csv -t ../results/transcript_count_matrix_str2.csv --legend=../results/legend_str2.csv
 
