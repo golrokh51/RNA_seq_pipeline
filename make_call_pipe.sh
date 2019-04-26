@@ -18,12 +18,14 @@ labels=$WORK_DIR/results/_labels.txt
 fld=$(ls -1  $temp_path/template_*.sh |awk -F"/" '{print NF}' | uniq)
 fld=$((fld+0))
 
+### you should adjust this line based on the your input files' names
 ls $WORK_DIR/data/*_1.fq.gz |cut -f$fld -d"/" | cut -f1 -d"." |sed 's/.$//g' |sed 's/.$//g' | uniq  > $labels
 
 errDir="$WORK_DIR/results/_logs/$5.out"
 outDir="$WORK_DIR/results/_logs/$5.err"
 
 # list all your subject and put them in a file
+### you should adjust this line based on the your input files' names
 ls -1  $WORK_DIR/data/*_1.fq.gz  > $inputFiles
 fld=$(ls $WORK_DIR/data/*_1.fq.gz |awk -F"/" '{print NF}' | uniq)
 fld=$((fld+0))
