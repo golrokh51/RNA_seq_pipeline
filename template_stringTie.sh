@@ -4,8 +4,11 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mail-user=__EMAIL__
 #SBATCH --mail-type=__EMAIL_TYPE__
+#SBATCH --error=__ERR_LOG__
+#SBATCH --output=__OUT_LOG__
+#SBATCH --workdir=__WORK_DIR__
 
-cd $__WORKDIR__/__JOBID__/scripts
+
 labels=../results/_labels.txt
 strTie_Assembly_list="../results/assembly_GTF_list1.txt"
 # Here I pick line number ${SLURM_ARRAY_TASK_ID}
