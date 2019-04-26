@@ -25,6 +25,8 @@ outDir="$WORK_DIR/results/_logs/$5.err"
 
 # list all your subject and put them in a file
 ls -1  $WORK_DIR/data/*_1.fq.gz  > $inputFiles
+fld=$(ls $WORK_DIR/data/*_1.fq.gz |awk -F"/" '{print NF}' | uniq)
+fld=$((fld+0))
 
 # rm $WORK_DIR/180911_Lim/data/*.fq
 WORK_DIR=$WORK_DIR/scripts
