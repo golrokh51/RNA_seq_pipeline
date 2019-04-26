@@ -84,5 +84,5 @@ rm $read1 $read2
 
 ## To run RNA-seq pipeline on CEDAR, GRAHAM, MP2b you should run within RNA_seq_pipline folder the following command:
 ```bash
-./make_call_pipe.sh jobID_1 you@email.com All yourPIgroup
+./make_call_pipe.sh jobID_1 you@email.com All yourPIgroup logPrefix
 ```
