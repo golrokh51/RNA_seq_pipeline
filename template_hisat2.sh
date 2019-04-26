@@ -4,11 +4,13 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mail-user=__EMAIL__
 #SBATCH --mail-type=__EMAIL_TYPE__
-
+#SBATCH --error=__ERR_LOG__
+#SBATCH --output=__OUT_LOG__
+#SBATCH --workdir=__WORK_DIR__
 
 # All job recive a different number, from 1 to 18, that number is
 # stored in  $SLURM_ARRAY_TASK_ID
-cd $__WORKDIR__/__JOBID__/scripts
+
 module load hisat2/2.1.0
 inputFiles=../data/_all_fq.txt
 ###strTie_Assembly_list="../results/assembly_GTF_list.txt"
