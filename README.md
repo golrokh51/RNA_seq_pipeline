@@ -1,5 +1,39 @@
 # RNA_seq_pipeline
 ## warning: This pipline is under development, use with caution 
+This pipeline is for the users of the "Digital Research Alliance of Canada (the Alliance)"
+
+## Content
+  * [Requirement]
+  * [Installation]
+  * [How to run]
+  
+ ---
+ ## Requirment
+ ### [HISAT2](http://daehwankimlab.github.io/hisat2/)
+   * Description: HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads (both DNA and RNA) to a population of human genomes as well as to a single reference genome. Based on an extension of BWT for graphs (Sirén et al. 2014), we designed and implemented a graph FM index (GFM), an original approach and its first implementation. In addition to using one global GFM index that represents a population of human genomes, HISAT2 uses a large set of small GFM indexes that collectively cover the whole genome. These small indexes (called local indexes), combined with several alignment strategies, enable rapid and accurate alignment of sequencing reads. This new indexing scheme is called a Hierarchical Graph FM index (HGFM).
+   * Version: hisat2/2.2.1
+   * Needed modules on the Aliance: `StdEnv/2020` # It uses GCC 9.3.0, Intel 2020.1, and Open MPI 4.0.3 as defaults
+   * How to load: `module load StdEnv/2020 hisat2/2.2.1`
+   
+ ### [MultiQC](https://multiqc.info/)
+   * Description: Aggregate results from bioinformatics analyses across many samples into a single report
+   * Version: MultiQC/1.12
+   * Needed module on the Aliance servers: 
+     `export MUGQIC_INSTALL_HOME=/cvmfs/soft.mugqic/CentOS6`
+     `module use $MUGQIC_INSTALL_HOME/modulefiles`
+   * How to load: `module load mugqic/MultiQC/1.12`
+  
+  ### [Samtools](http://www.htslib.org/)
+  * Description: SAM Tools provide various utilities for manipulating alignments in the SAM format, including sorting, merging, indexing and generating alignments in a per-position format.
+  * Version: samtools/1.15.1
+  * Needed module on the Aliance servers: Needed modules on the Aliance: `StdEnv/2020` # It uses GCC 9.3.0, Intel 2020.1, and Open MPI 4.0.3 as defaults
+  * How to load: `module load StdEnv/2020 samtools/1.15.1`
+  
+  ### [StringTie](https://ccb.jhu.edu/software/stringtie/)
+  * Description: StringTie is a fast and highly efficient assembler of RNA-Seq alignments into potential transcripts. It uses a novel network flow algorithm as well as an optional de novo assembly step to assemble and quantitate full-length transcripts representing multiple splice variants for each gene locus. Its input can include not only alignments of short reads that can also be used by other transcript assemblers, but also alignments of longer sequences that have been assembled from those reads. In order to identify differentially expressed genes between experiments, StringTie's output can be processed by specialized software like Ballgown, Cuffdiff or other programs (DESeq2, edgeR, etc.). 
+  * Version: stringtie/2.1.5
+  * Needed module on the Aliance servers: Needed modules on the Aliance: `StdEnv/2020` # It uses GCC 9.3.0, Intel 2020.1, and Open MPI 4.0.3 as defaults
+  * How to load: `module load StdEnv/2020 stringtie/2.1.5`
 
 ### chdir, output, and error in SBATCH options causes the job to stop without any error file produced. I still don't know waht is the problem. Could be because I lunch the jobs with make_call_pipe script and not directly. Let me know if you know where the problem could be please.
 
